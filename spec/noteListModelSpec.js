@@ -5,10 +5,8 @@ describe('NoteListModel', function() {
     noteListModel = new NoteListModel()    
   })
 
-  describe('.getNotes', function() {
-    it('returns a empty list before any notes have been added', function() {
-      expect(noteListModel.getNotes()).toEqual([])
-    })
+  it('the notes variable cannot be accessed from outside the function', function() {
+    expect(noteListModel.notes).toBeUndefined
   })
 
   describe('.storeNote', function(){
