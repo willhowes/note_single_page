@@ -7,7 +7,7 @@ describe('Note', function(){
     expect(note.text).toEqual("My favourite language is JavaScript.")
   })
 
-  describe('getText', function() {
+  describe('.getText', function() {
     it('returns the notes text', function(){
       expect(note.getText()).toEqual("My favourite language is JavaScript.")
     })
