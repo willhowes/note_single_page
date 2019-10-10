@@ -1,14 +1,23 @@
 describe('NoteListView', function() {
+  'use strict';
+  
   beforeEach(function(){
-    fakeNoteList = jasmine.createSpyObj('fakeNoteList', ['getNotes']);
-    fakeNoteList.getNotes.and.callFake(function() {
-      return ['note one', 'note two'];
-    })
-    noteListView = new NoteListView(fakeNoteList)
-  });
+    this.noteListView
+    this.fakeNoteList = jasmine.createSpyObj('fakeNoteList', ['getNotes']);
+  })
 
-  it('returns a string with the notes texts', function() {
-    expect(noteListView.printNotes()).toEqual("<ul><li><div>note one</div></li><li><div>note two</div></li></ul>")
+  describe('when the fakeNoteList has several notes', function(){
+
+    beforeEach(function(){
+      this.fakeNoteList.getNotes.and.callFake(function() {
+        return ['note one', 'note two', 'note three'];
+      })
+      this.noteListView = new NoteListView(this.fakeNoteList)
+    });
+  
+    it('returns a string with the notes texts', function() {
+      expect(this.noteListView.printNotes()).toEqual("<ul><li><div>note one</div></li><li><div>note two</div></li><li><div>note three</div></li></ul>")
+    })
   })
 })
 
