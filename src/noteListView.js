@@ -1,18 +1,16 @@
 NoteListView = (function() {
-  var notes
+  let notes
   function NoteListView(noteList) {
     noteList = noteList;
-    notes = noteList.getNotes
+    notes = noteList.getNotes()
   }
   NoteListView.prototype.printNotes = function () { 
-    var final_html = "<ul>"
-
+    let final_html = "<ul>"
     notes.forEach(function(note) {
-      final_html.concat(`<li><div>${note}</div></li>`)
+      final_html = final_html.concat(`<li><div>${note}</div></li>`)
     });
+    return final_html = final_html.concat('</ul>')
 
-    final_html.contact('</ul>')
-    return final_html 
   }
   return NoteListView;
 })();
