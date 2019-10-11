@@ -6,7 +6,6 @@ NoteController = (function () {
   }
 
   NoteController.prototype.amendApp = function () { 
-    console.log(document)
     app.innerHTML = noteListView.printNotes();
   }
   return NoteController;
